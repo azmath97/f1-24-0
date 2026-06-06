@@ -63,12 +63,13 @@
             <span id="rerollText">Re-rolls / 3 left</span>
           </div>
 
-          <label class="driver-select-wrap" for="driverSelect">
+          <div class="driver-select-wrap">
             <span class="label">Pick A Driver</span>
-            <select id="driverSelect" disabled>
-              <option value="">Roll first</option>
-            </select>
-          </label>
+            <button class="driver-picker-button" id="driverPickerButton" type="button" disabled>
+              Roll first
+            </button>
+            <div class="driver-options" id="driverOptions" role="listbox" aria-label="Driver options"></div>
+          </div>
 
           <button class="ghost-button" id="skipButton" type="button" disabled>
             No driver fits / roll again

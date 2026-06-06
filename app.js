@@ -279,6 +279,123 @@ const seasonRosters = {
   ]
 };
 
+const supplementalRosters = {
+  2001: [
+    roster("Luciano Burti", "Jaguar/Prost", 64), roster("Enrique Bernoldi", "Arrows", 63),
+    roster("Tarso Marques", "Minardi", 60), roster("Alex Yoong", "Minardi", 59),
+    roster("Tomas Enge", "Prost", 60)
+  ],
+  2002: [
+    roster("Allan McNish", "Toyota", 64), roster("Mika Salo", "Toyota", 67),
+    roster("Enrique Bernoldi", "Arrows", 62), roster("Alex Yoong", "Minardi", 59),
+    roster("Anthony Davidson", "Minardi", 60)
+  ],
+  2003: [
+    roster("Antonio Pizzonia", "Jaguar", 62), roster("Cristiano da Matta", "Toyota", 67),
+    roster("Justin Wilson", "Minardi/Jaguar", 65), roster("Nicolas Kiesa", "Minardi", 59),
+    roster("Ralph Firman", "Jordan", 62), roster("Zsolt Baumgartner", "Jordan", 58)
+  ],
+  2004: [
+    roster("Antonio Pizzonia", "Williams", 64), roster("Cristiano da Matta", "Toyota", 65),
+    roster("Gianmaria Bruni", "Minardi", 58), roster("Giorgio Pantano", "Jordan", 60),
+    roster("Marc Gene", "Williams", 64), roster("Olivier Panis", "Toyota", 66),
+    roster("Ricardo Zonta", "Toyota", 63), roster("Zsolt Baumgartner", "Minardi", 58)
+  ],
+  2005: [
+    roster("Alexander Wurz", "McLaren", 66), roster("Anthony Davidson", "BAR", 61),
+    roster("Antonio Pizzonia", "Williams", 63), roster("Christijan Albers", "Minardi", 61),
+    roster("Narain Karthikeyan", "Jordan", 60), roster("Patrick Friesacher", "Minardi", 58),
+    roster("Pedro de la Rosa", "McLaren", 66), roster("Robert Doornbos", "Minardi", 60),
+    roster("Tiago Monteiro", "Jordan", 63), roster("Vitantonio Liuzzi", "Red Bull", 63)
+  ],
+  2006: [
+    roster("Christijan Albers", "Midland", 60), roster("Franck Montagny", "Super Aguri", 59),
+    roster("Robert Doornbos", "Red Bull", 62), roster("Sakon Yamamoto", "Super Aguri", 58),
+    roster("Scott Speed", "Toro Rosso", 61), roster("Tiago Monteiro", "Midland", 60),
+    roster("Vitantonio Liuzzi", "Toro Rosso", 62), roster("Yuji Ide", "Super Aguri", 56)
+  ],
+  2007: [
+    roster("Anthony Davidson", "Super Aguri", 62), roster("Alexander Wurz", "Williams", 66),
+    roster("Kazuki Nakajima", "Williams", 61), roster("Markus Winkelhock", "Spyker", 59),
+    roster("Sakon Yamamoto", "Spyker", 58), roster("Scott Speed", "Toro Rosso", 60),
+    roster("Vitantonio Liuzzi", "Toro Rosso", 61)
+  ],
+  2008: [
+    roster("Anthony Davidson", "Super Aguri", 60), roster("Kazuki Nakajima", "Williams", 63),
+    roster("Nelson Piquet Jr.", "Renault", 62), roster("Sebastien Bourdais", "Toro Rosso", 63)
+  ],
+  2009: [
+    roster("Jaime Alguersuari", "Toro Rosso", 60), roster("Kazuki Nakajima", "Williams", 61),
+    roster("Luca Badoer", "Ferrari", 58), roster("Nelson Piquet Jr.", "Renault", 60),
+    roster("Sebastien Bourdais", "Toro Rosso", 61), roster("Sebastien Buemi", "Toro Rosso", 63)
+  ],
+  2010: [
+    roster("Bruno Senna", "HRT", 60), roster("Christian Klien", "HRT", 59),
+    roster("Jaime Alguersuari", "Toro Rosso", 62), roster("Karun Chandhok", "HRT", 59),
+    roster("Lucas di Grassi", "Virgin", 59), roster("Pedro de la Rosa", "Sauber", 62),
+    roster("Sakon Yamamoto", "HRT", 57), roster("Sebastien Buemi", "Toro Rosso", 63),
+    roster("Vitantonio Liuzzi", "Force India", 63)
+  ],
+  2011: [
+    roster("Bruno Senna", "Renault", 62), roster("Jaime Alguersuari", "Toro Rosso", 63),
+    roster("Jerome d'Ambrosio", "Virgin", 59), roster("Karun Chandhok", "Lotus", 58),
+    roster("Narain Karthikeyan", "HRT", 58), roster("Sebastien Buemi", "Toro Rosso", 63),
+    roster("Vitantonio Liuzzi", "HRT", 59)
+  ],
+  2012: [
+    roster("Bruno Senna", "Williams", 64), roster("Charles Pic", "Marussia", 59),
+    roster("Jean-Eric Vergne", "Toro Rosso", 64), roster("Jerome d'Ambrosio", "Lotus", 60),
+    roster("Narain Karthikeyan", "HRT", 57), roster("Pedro de la Rosa", "HRT", 58)
+  ],
+  2013: [
+    roster("Charles Pic", "Caterham", 59), roster("Esteban Gutierrez", "Sauber", 62),
+    roster("Giedo van der Garde", "Caterham", 59), roster("Jean-Eric Vergne", "Toro Rosso", 64),
+    roster("Jules Bianchi", "Marussia", 64), roster("Max Chilton", "Marussia", 58),
+    roster("Paul di Resta", "Force India", 65)
+  ],
+  2014: [
+    roster("Andre Lotterer", "Caterham", 60), roster("Esteban Gutierrez", "Sauber", 60),
+    roster("Jean-Eric Vergne", "Toro Rosso", 64), roster("Jules Bianchi", "Marussia", 65),
+    roster("Marcus Ericsson", "Caterham", 58), roster("Max Chilton", "Marussia", 58),
+    roster("Will Stevens", "Caterham", 58)
+  ],
+  2015: [
+    roster("Alexander Rossi", "Manor", 59), roster("Felipe Nasr", "Sauber", 64),
+    roster("Marcus Ericsson", "Sauber", 60), roster("Roberto Merhi", "Manor", 58),
+    roster("Will Stevens", "Manor", 58)
+  ],
+  2016: [
+    roster("Felipe Nasr", "Sauber", 61), roster("Jolyon Palmer", "Renault", 60),
+    roster("Marcus Ericsson", "Sauber", 60), roster("Pascal Wehrlein", "Manor", 63),
+    roster("Rio Haryanto", "Manor", 58), roster("Stoffel Vandoorne", "McLaren", 62)
+  ],
+  2017: [
+    roster("Antonio Giovinazzi", "Sauber", 60), roster("Brendon Hartley", "Toro Rosso", 60),
+    roster("Jolyon Palmer", "Renault", 60), roster("Marcus Ericsson", "Sauber", 59),
+    roster("Pascal Wehrlein", "Sauber", 62), roster("Stoffel Vandoorne", "McLaren", 62)
+  ],
+  2018: [
+    roster("Brendon Hartley", "Toro Rosso", 60), roster("Marcus Ericsson", "Sauber", 60),
+    roster("Sergey Sirotkin", "Williams", 58), roster("Stoffel Vandoorne", "McLaren", 60)
+  ],
+  2019: [
+    roster("Antonio Giovinazzi", "Alfa Romeo", 61), roster("Robert Kubica", "Williams", 58)
+  ],
+  2020: [
+    roster("Antonio Giovinazzi", "Alfa Romeo", 61), roster("Nicholas Latifi", "Williams", 58)
+  ],
+  2021: [
+    roster("Antonio Giovinazzi", "Alfa Romeo", 61), roster("Mick Schumacher", "Haas", 60),
+    roster("Nicholas Latifi", "Williams", 58), roster("Nikita Mazepin", "Haas", 56)
+  ],
+  2022: [
+    roster("Mick Schumacher", "Haas", 60), roster("Nicholas Latifi", "Williams", 57)
+  ],
+  2023: [
+    roster("Nyck de Vries", "AlphaTauri", 58)
+  ]
+};
+
 const state = {
   calendarYear: 2025,
   races: [...calendars[2025]],
@@ -286,7 +403,8 @@ const state = {
   currentIndex: 0,
   rolledYear: null,
   rerolls: 3,
-  result: []
+  result: [],
+  dropdownOpen: false
 };
 
 function entry(name, from, to, rating, teams, tags) {
@@ -323,7 +441,7 @@ function driversForYear(year) {
     }))
     .forEach(driver => combined.set(driver.name, driver));
 
-  (seasonRosters[year] || []).forEach(driver => {
+  [...(seasonRosters[year] || []), ...(supplementalRosters[year] || [])].forEach(driver => {
     if (!combined.has(driver.name)) {
       combined.set(driver.name, {
         ...driver,
@@ -466,7 +584,9 @@ function constructorColor(team) {
 function teamBadgeHtml(team) {
   const color = constructorColor(team);
   const darkText = ["#ffffff", "#ffd800", "#f7d117", "#b6ff00", "#d7d7d7", "#b6babd"].includes(color);
-  return `<span class="team-badge" style="--team-color:${color};color:${darkText ? "#111" : "#fff"}">${constructorCode(team)}</span><span>${team}</span>`;
+  const code = constructorCode(team);
+  const name = code === team ? "" : `<span>${team}</span>`;
+  return `<span class="team-badge" style="--team-color:${color};color:${darkText ? "#111" : "#fff"}">${code}</span>${name}`;
 }
 
 function teamOptionLabel(driver) {
@@ -607,7 +727,7 @@ function renderRaceList() {
         <span>
           <span class="race-name">${race}</span>
           <span class="race-pick">${pick ? pick.name : "-"}</span>
-          <span class="race-meta">${pick ? `${pick.year} ${teamBadgeHtml(pick.team)}` : "Waiting for roll"}</span>
+          <span class="race-meta">${pick ? `${pick.year} / ${pick.team}` : "Waiting for roll"}</span>
         </span>
       </article>
     `;
@@ -623,8 +743,10 @@ function renderRollPanel() {
   if (!state.rolledYear) {
     byId("rollHint").textContent = "Roll the dice to draw any F1 driver year from 1990 to 2025.";
     byId("rollButtonText").textContent = "Roll Year";
-    byId("driverSelect").innerHTML = `<option value="">Roll first</option>`;
-    byId("driverSelect").disabled = true;
+    byId("driverPickerButton").textContent = "Roll first";
+    byId("driverPickerButton").disabled = true;
+    byId("driverOptions").innerHTML = "";
+    byId("driverOptions").classList.remove("is-open");
     byId("skipButton").disabled = true;
     return;
   }
@@ -632,11 +754,15 @@ function renderRollPanel() {
   const drivers = driversForYear(state.rolledYear);
   byId("rollHint").textContent = `Race: ${currentRaceName()}. Choose one driver who raced in ${state.rolledYear}.`;
   byId("rollButtonText").textContent = "Roll Again";
-  byId("driverSelect").disabled = false;
-  byId("driverSelect").innerHTML = [
-    `<option value="">Select from ${state.rolledYear}</option>`,
-    ...drivers.map((driver, index) => `<option value="${index}">${teamOptionLabel(driver)}</option>`)
-  ].join("");
+  byId("driverPickerButton").textContent = `Select from ${state.rolledYear}`;
+  byId("driverPickerButton").disabled = false;
+  byId("driverOptions").classList.toggle("is-open", state.dropdownOpen);
+  byId("driverOptions").innerHTML = drivers.map((driver, index) => `
+    <button class="driver-option" type="button" role="option" data-driver-index="${index}">
+      <span class="driver-option-name">${driver.name}</span>
+      <span class="driver-option-team">${teamBadgeHtml(driver.team)}</span>
+    </button>
+  `).join("");
   byId("skipButton").disabled = state.rerolls <= 0;
 }
 
@@ -652,6 +778,7 @@ function setCalendar(year) {
   state.rolledYear = null;
   state.rerolls = 3;
   state.result = [];
+  state.dropdownOpen = false;
   byId("results").hidden = true;
   byId("celebration").hidden = true;
   byId("confetti").innerHTML = "";
@@ -663,16 +790,21 @@ function rollYear(isReroll = false) {
   if (isReroll && state.rolledYear && state.rerolls <= 0) return;
   if (isReroll && state.rolledYear) state.rerolls -= 1;
   state.rolledYear = 1990 + Math.floor(Math.random() * 36);
+  state.dropdownOpen = true;
   render();
+  requestAnimationFrame(() => {
+    byId("driverPickerButton").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 }
 
 function chooseDriver(value) {
-  if (!value || !state.rolledYear || allFilled()) return;
+  if (value === "" || !state.rolledYear || allFilled()) return;
   const picked = driversForYear(state.rolledYear)[Number(value)];
   state.picks[state.currentIndex] = picked;
   const nextOpen = state.picks.findIndex(item => !item);
   state.currentIndex = nextOpen === -1 ? state.races.length - 1 : nextOpen;
   state.rolledYear = null;
+  state.dropdownOpen = false;
   render();
 }
 
@@ -706,7 +838,7 @@ function runSimulation() {
       <span>
         <span class="race-name">${item.race}</span>
         <span class="race-pick">${item.pick.name}</span>
-        <span class="race-meta">${item.pick.year} ${teamBadgeHtml(item.pick.team)}</span>
+        <span class="race-meta">${item.pick.year} / ${item.pick.team}</span>
       </span>
     </article>
   `).join("");
@@ -806,7 +938,16 @@ function toggleTheme() {
 function bindEvents() {
   byId("rollButton").addEventListener("click", () => rollYear(Boolean(state.rolledYear)));
   byId("skipButton").addEventListener("click", () => rollYear(true));
-  byId("driverSelect").addEventListener("change", event => chooseDriver(event.target.value));
+  byId("driverPickerButton").addEventListener("click", () => {
+    if (!state.rolledYear) return;
+    state.dropdownOpen = !state.dropdownOpen;
+    render();
+  });
+  byId("driverOptions").addEventListener("click", event => {
+    const option = event.target.closest("[data-driver-index]");
+    if (!option) return;
+    chooseDriver(option.dataset.driverIndex);
+  });
   byId("simulateButton").addEventListener("click", runSimulation);
   byId("newGameButton").addEventListener("click", newRun);
   byId("downloadCardButton").addEventListener("click", downloadResultCard);
