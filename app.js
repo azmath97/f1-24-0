@@ -110,7 +110,7 @@ const teamStints = {
   "Rubens Barrichello": [[1993, 1996, "Jordan"], [1997, 1999, "Stewart"], [2000, 2005, "Ferrari"], [2006, 2008, "Honda"], [2009, 2009, "Brawn"], [2010, 2011, "Williams"]],
   "David Coulthard": [[1994, 1995, "Williams"], [1996, 2004, "McLaren"], [2005, 2008, "Red Bull"]],
   "Jacques Villeneuve": [[1996, 1998, "Williams"], [1999, 2003, "BAR"], [2004, 2004, "Renault"], [2005, 2006, "Sauber/BMW Sauber"]],
-  "Heinz-Harald Frentzen": [[1994, 1996, "Sauber"], [1997, 1998, "Williams"], [1999, 2001, "Jordan/Prost"], [2002, 2003, "Arrows/Sauber"]],
+  "Heinz-Harald Frentzen": [[1994, 1996, "Sauber"], [1997, 1998, "Williams"], [1999, 2000, "Jordan"], [2001, 2001, "Jordan/Prost"], [2002, 2003, "Arrows/Sauber"]],
   "Eddie Irvine": [[1993, 1995, "Jordan"], [1996, 1999, "Ferrari"], [2000, 2002, "Jaguar"]],
   "Ralf Schumacher": [[1997, 1998, "Jordan"], [1999, 2004, "Williams"], [2005, 2007, "Toyota"]],
   "Giancarlo Fisichella": [[1996, 1997, "Minardi/Jordan"], [1998, 2001, "Benetton"], [2002, 2003, "Jordan"], [2004, 2004, "Sauber"], [2005, 2007, "Renault"], [2008, 2009, "Force India/Ferrari"]],
@@ -118,7 +118,7 @@ const teamStints = {
   "Kimi Raikkonen": [[2001, 2001, "Sauber"], [2002, 2006, "McLaren"], [2007, 2009, "Ferrari"], [2012, 2013, "Lotus"], [2014, 2018, "Ferrari"], [2019, 2021, "Alfa Romeo"]],
   "Fernando Alonso": [[2001, 2001, "Minardi"], [2003, 2006, "Renault"], [2007, 2007, "McLaren"], [2008, 2009, "Renault"], [2010, 2014, "Ferrari"], [2015, 2018, "McLaren"], [2021, 2022, "Alpine"], [2023, 2025, "Aston Martin"]],
   "Jenson Button": [[2000, 2000, "Williams"], [2001, 2002, "Benetton/Renault"], [2003, 2005, "BAR"], [2006, 2008, "Honda"], [2009, 2009, "Brawn"], [2010, 2017, "McLaren"]],
-  "Jarno Trulli": [[1997, 1999, "Minardi/Prost"], [2000, 2001, "Jordan"], [2002, 2004, "Renault"], [2004, 2009, "Toyota"], [2010, 2011, "Lotus"]],
+  "Jarno Trulli": [[1997, 1997, "Minardi/Prost"], [1998, 1999, "Prost"], [2000, 2001, "Jordan"], [2002, 2004, "Renault"], [2004, 2009, "Toyota"], [2010, 2011, "Lotus"]],
   "Nick Heidfeld": [[2000, 2000, "Prost"], [2001, 2003, "Sauber"], [2004, 2004, "Jordan"], [2005, 2005, "Williams"], [2006, 2009, "BMW Sauber"], [2010, 2011, "Mercedes/Renault"]],
   "Mark Webber": [[2002, 2002, "Minardi"], [2003, 2004, "Jaguar"], [2005, 2006, "Williams"], [2007, 2013, "Red Bull"]],
   "Felipe Massa": [[2002, 2002, "Sauber"], [2004, 2005, "Sauber"], [2006, 2013, "Ferrari"], [2014, 2017, "Williams"]],
@@ -164,6 +164,121 @@ const teamStints = {
 
 const seasonMetrics = buildSeasonMetrics();
 
+const seasonRosters = {
+  1990: [
+    roster("Aguri Suzuki", "Larrousse", 72), roster("Alessandro Nannini", "Benetton", 84),
+    roster("Alex Caffi", "Dallara", 69), roster("Andrea de Cesaris", "Dallara", 72),
+    roster("Bertrand Gachot", "Coloni", 66), roster("Derek Warwick", "Lotus", 73),
+    roster("Eric Bernard", "Larrousse", 73), roster("Gabriele Tarquini", "AGS", 64),
+    roster("Gregor Foitek", "Onyx/Brabham", 64), roster("Ivan Capelli", "Leyton House", 79),
+    roster("JJ Lehto", "Onyx", 66), roster("Martin Donnelly", "Lotus", 68),
+    roster("Mauricio Gugelmin", "Leyton House", 70), roster("Nicola Larini", "Ligier", 68),
+    roster("Olivier Grouillard", "Osella", 64), roster("Paolo Barilla", "Minardi", 63),
+    roster("Philippe Alliot", "Ligier", 68), roster("Pierluigi Martini", "Minardi", 71),
+    roster("Roberto Moreno", "EuroBrun/Benetton", 72), roster("Satoru Nakajima", "Tyrrell", 67),
+    roster("Stefano Modena", "Brabham", 71), roster("Yannick Dalmas", "AGS", 64)
+  ],
+  1991: [
+    roster("Aguri Suzuki", "Larrousse", 68), roster("Alessandro Zanardi", "Jordan", 67),
+    roster("Alex Caffi", "Footwork", 65), roster("Andrea de Cesaris", "Jordan", 77),
+    roster("Bertrand Gachot", "Jordan", 72), roster("Eric Bernard", "Larrousse", 68),
+    roster("Gabriele Tarquini", "AGS", 64), roster("Gianni Morbidelli", "Minardi/Ferrari", 67),
+    roster("Ivan Capelli", "Leyton House", 71), roster("Johnny Herbert", "Lotus", 69),
+    roster("Julian Bailey", "Lotus", 63), roster("Mark Blundell", "Brabham", 66),
+    roster("Martin Brundle", "Brabham", 68), roster("Mauricio Gugelmin", "Leyton House", 67),
+    roster("Michele Alboreto", "Footwork", 67), roster("Nicola Larini", "Modena", 66),
+    roster("Olivier Grouillard", "Fondmetal", 64), roster("Pierluigi Martini", "Minardi", 68),
+    roster("Roberto Moreno", "Benetton/Jordan/Minardi", 69), roster("Satoru Nakajima", "Tyrrell", 66),
+    roster("Stefano Modena", "Tyrrell", 76), roster("Stefan Johansson", "AGS/Footwork", 65)
+  ],
+  1992: [
+    roster("Aguri Suzuki", "Footwork", 66), roster("Andrea de Cesaris", "Tyrrell", 70),
+    roster("Bertrand Gachot", "Larrousse", 66), roster("Christian Fittipaldi", "Minardi", 65),
+    roster("Eric van de Poele", "Brabham/Fondmetal", 62), roster("Erik Comas", "Ligier", 66),
+    roster("Gianni Morbidelli", "Minardi", 64), roster("Ivan Capelli", "Ferrari", 69),
+    roster("JJ Lehto", "Dallara", 68), roster("Karl Wendlinger", "March", 68),
+    roster("Martin Brundle", "Benetton", 78), roster("Mauricio Gugelmin", "Jordan", 63),
+    roster("Michele Alboreto", "Footwork", 68), roster("Nicola Larini", "Ferrari", 64),
+    roster("Olivier Grouillard", "Tyrrell", 63), roster("Paul Belmondo", "March", 61),
+    roster("Pierluigi Martini", "Dallara", 66), roster("Stefano Modena", "Jordan", 64),
+    roster("Thierry Boutsen", "Ligier", 68), roster("Ukyo Katayama", "Larrousse", 64)
+  ],
+  1993: [
+    roster("Aguri Suzuki", "Footwork", 64), roster("Alessandro Zanardi", "Lotus", 67),
+    roster("Andrea de Cesaris", "Tyrrell", 67), roster("Christian Fittipaldi", "Minardi", 67),
+    roster("Derek Warwick", "Footwork", 68), roster("Erik Comas", "Larrousse", 66),
+    roster("Fabrizio Barbazza", "Minardi", 63), roster("JJ Lehto", "Sauber", 71),
+    roster("Johnny Herbert", "Lotus", 70), roster("Karl Wendlinger", "Sauber", 70),
+    roster("Luca Badoer", "Lola", 63), roster("Mark Blundell", "Ligier", 72),
+    roster("Martin Brundle", "Ligier", 73), roster("Michele Alboreto", "Lola", 62),
+    roster("Philippe Alliot", "Larrousse", 66), roster("Pierluigi Martini", "Minardi", 64),
+    roster("Thierry Boutsen", "Jordan", 63), roster("Toshio Suzuki", "Larrousse", 61),
+    roster("Ukyo Katayama", "Tyrrell", 64)
+  ],
+  1994: [
+    roster("Andrea de Cesaris", "Jordan/Sauber", 68), roster("David Brabham", "Simtek", 62),
+    roster("Domenico Schiattarella", "Simtek", 61), roster("Eric Bernard", "Ligier/Lotus", 66),
+    roster("Erik Comas", "Larrousse", 66), roster("Gianni Morbidelli", "Footwork", 66),
+    roster("Hideki Noda", "Larrousse", 60), roster("JJ Lehto", "Benetton/Sauber", 68),
+    roster("Jean-Marc Gounon", "Simtek", 61), roster("Johnny Herbert", "Lotus/Benetton/Ligier", 70),
+    roster("Jos Verstappen", "Benetton", 67), roster("Karl Wendlinger", "Sauber", 69),
+    roster("Luca Badoer", "Minardi", 63), roster("Mark Blundell", "Tyrrell", 68),
+    roster("Martin Brundle", "McLaren", 72), roster("Michele Alboreto", "Minardi", 64),
+    roster("Olivier Beretta", "Larrousse", 61), roster("Olivier Panis", "Ligier", 67),
+    roster("Pedro Lamy", "Lotus", 62), roster("Philippe Alliot", "McLaren/Larrousse", 65),
+    roster("Pierluigi Martini", "Minardi", 66), roster("Roland Ratzenberger", "Simtek", 61),
+    roster("Ukyo Katayama", "Tyrrell", 69), roster("Yannick Dalmas", "Larrousse", 61)
+  ],
+  1995: [
+    roster("Andrea Montermini", "Pacific", 61), roster("Bertrand Gachot", "Pacific", 62),
+    roster("Gianni Morbidelli", "Footwork", 66), roster("Giovanni Lavaggi", "Pacific", 59),
+    roster("Jean-Christophe Boullion", "Sauber", 64), roster("Johnny Herbert", "Benetton", 78),
+    roster("Jos Verstappen", "Simtek", 64), roster("Karl Wendlinger", "Sauber", 63),
+    roster("Luca Badoer", "Minardi", 63), roster("Martin Brundle", "Ligier", 69),
+    roster("Max Papis", "Footwork", 61), roster("Mika Salo", "Tyrrell", 67),
+    roster("Olivier Panis", "Ligier", 68), roster("Pedro Diniz", "Forti", 61),
+    roster("Pedro Lamy", "Minardi", 63), roster("Pierluigi Martini", "Minardi", 64),
+    roster("Roberto Moreno", "Forti", 61), roster("Taki Inoue", "Footwork", 60),
+    roster("Ukyo Katayama", "Tyrrell", 65)
+  ],
+  1996: [
+    roster("Andrea Montermini", "Forti", 60), roster("Giovanni Lavaggi", "Minardi", 59),
+    roster("Jos Verstappen", "Footwork", 64), roster("Luca Badoer", "Forti", 61),
+    roster("Martin Brundle", "Jordan", 68), roster("Mika Salo", "Tyrrell", 66),
+    roster("Olivier Panis", "Ligier", 75), roster("Pedro Diniz", "Ligier", 63),
+    roster("Pedro Lamy", "Minardi", 62), roster("Ricardo Rosset", "Footwork", 61),
+    roster("Tarso Marques", "Minardi", 59), roster("Ukyo Katayama", "Tyrrell", 62)
+  ],
+  1997: [
+    roster("Jan Magnussen", "Stewart", 62), roster("Jarno Trulli", "Minardi/Prost", 67),
+    roster("Mika Salo", "Tyrrell", 66), roster("Nicola Larini", "Sauber", 64),
+    roster("Norberto Fontana", "Sauber", 60), roster("Olivier Panis", "Prost", 74),
+    roster("Pedro Diniz", "Arrows", 63), roster("Shinji Nakano", "Prost", 62),
+    roster("Tarso Marques", "Minardi", 60), roster("Ukyo Katayama", "Minardi", 61)
+  ],
+  1998: [
+    roster("Esteban Tuero", "Minardi", 60), roster("Jan Magnussen", "Stewart", 61),
+    roster("Jos Verstappen", "Stewart", 63), roster("Mika Salo", "Arrows", 65),
+    roster("Olivier Panis", "Prost", 65), roster("Pedro Diniz", "Arrows", 63),
+    roster("Ricardo Rosset", "Tyrrell", 59), roster("Shinji Nakano", "Minardi", 61),
+    roster("Toranosuke Takagi", "Tyrrell", 61)
+  ],
+  1999: [
+    roster("Luca Badoer", "Minardi/Ferrari", 62), roster("Marc Gene", "Minardi", 64),
+    roster("Mika Salo", "BAR/Ferrari", 70), roster("Olivier Panis", "Prost", 64),
+    roster("Pedro de la Rosa", "Arrows", 64), roster("Pedro Diniz", "Sauber", 63),
+    roster("Ricardo Zonta", "BAR", 62), roster("Stephane Sarrazin", "Minardi", 59),
+    roster("Toranosuke Takagi", "Arrows", 60)
+  ],
+  2000: [
+    roster("Alexander Wurz", "Benetton", 64), roster("Gaston Mazzacane", "Minardi", 60),
+    roster("Johnny Herbert", "Jaguar", 62), roster("Jos Verstappen", "Arrows", 66),
+    roster("Luciano Burti", "Jaguar", 60), roster("Marc Gene", "Minardi", 61),
+    roster("Mika Salo", "Sauber", 67), roster("Pedro de la Rosa", "Arrows", 66),
+    roster("Pedro Diniz", "Sauber", 63), roster("Ricardo Zonta", "BAR", 62)
+  ]
+};
+
 const state = {
   calendarYear: 2025,
   races: [...calendars[2025]],
@@ -176,6 +291,10 @@ const state = {
 
 function entry(name, from, to, rating, teams, tags) {
   return { name, from, to, rating, teams, tags };
+}
+
+function roster(name, team, score) {
+  return { name, team, score, yearOnly: true, tags: ["Grid"] };
 }
 
 function byId(id) {
@@ -191,7 +310,9 @@ function currentRaceName() {
 }
 
 function driversForYear(year) {
-  return driverCareers
+  const combined = new Map();
+
+  driverCareers
     .filter(driver => racedInYear(driver, year))
     .map(driver => ({
       ...driver,
@@ -200,7 +321,23 @@ function driversForYear(year) {
       score: seasonalScore(driver, year),
       metrics: metricsFor(driver.name, year)
     }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .forEach(driver => combined.set(driver.name, driver));
+
+  (seasonRosters[year] || []).forEach(driver => {
+    if (!combined.has(driver.name)) {
+      combined.set(driver.name, {
+        ...driver,
+        year,
+        metrics: null,
+        rating: driver.score,
+        from: year,
+        to: year,
+        teams: [driver.team]
+      });
+    }
+  });
+
+  return [...combined.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function teamForYear(driver, year) {
@@ -217,6 +354,124 @@ function racedInYear(driver, year) {
   const stints = teamStints[driver.name];
   if (stints) return stints.some(([from, to]) => year >= from && year <= to);
   return driver.from <= year && driver.to >= year;
+}
+
+function constructorKey(team) {
+  return team.split("/")[0].trim();
+}
+
+function constructorCode(team) {
+  const key = constructorKey(team);
+  const codes = {
+    "AGS": "AGS",
+    "Alfa Romeo": "ALF",
+    "AlphaTauri": "AT",
+    "Alpine": "ALP",
+    "Arrows": "ARR",
+    "Aston Martin": "AM",
+    "BAR": "BAR",
+    "BMW Sauber": "BMW",
+    "Benetton": "BEN",
+    "Brabham": "BRA",
+    "Brawn": "BGP",
+    "Caterham": "CAT",
+    "Coloni": "COL",
+    "Dallara": "DAL",
+    "Ferrari": "FER",
+    "Fondmetal": "FON",
+    "Footwork": "FOO",
+    "Force India": "FI",
+    "Forti": "FOR",
+    "HRT": "HRT",
+    "Haas": "HAS",
+    "Honda": "HON",
+    "Jaguar": "JAG",
+    "Jordan": "JOR",
+    "Kick Sauber": "SAU",
+    "Larrousse": "LAR",
+    "Leyton House": "LEY",
+    "Ligier": "LIG",
+    "Lola": "LOL",
+    "Lotus": "LOT",
+    "Manor": "MAN",
+    "March": "MAR",
+    "Marussia": "MAR",
+    "McLaren": "MCL",
+    "Mercedes": "MER",
+    "Minardi": "MIN",
+    "Modena": "MOD",
+    "Onyx": "ONY",
+    "Osella": "OSE",
+    "Pacific": "PAC",
+    "Prost": "PRO",
+    "RB": "RB",
+    "Racing Bulls": "VCARB",
+    "Racing Point": "RP",
+    "Red Bull": "RBR",
+    "Renault": "REN",
+    "Sauber": "SAU",
+    "Simtek": "SIM",
+    "Spyker": "SPY",
+    "Stewart": "STW",
+    "Super Aguri": "SA",
+    "Toro Rosso": "STR",
+    "Toyota": "TOY",
+    "Tyrrell": "TYR",
+    "Virgin": "VIR",
+    "Williams": "WIL"
+  };
+  return codes[key] || key.slice(0, 3).toUpperCase();
+}
+
+function constructorColor(team) {
+  const key = constructorKey(team);
+  const colors = {
+    "Alfa Romeo": "#8b1e2d",
+    "AlphaTauri": "#2f4f7f",
+    "Alpine": "#2293d1",
+    "Arrows": "#f47b20",
+    "Aston Martin": "#006f62",
+    "BAR": "#d7d7d7",
+    "BMW Sauber": "#1f69c9",
+    "Benetton": "#1f9d55",
+    "Brawn": "#b6ff00",
+    "Ferrari": "#dc0000",
+    "Force India": "#ff5f9e",
+    "Haas": "#b6babd",
+    "Honda": "#ffffff",
+    "Jaguar": "#0b5f3a",
+    "Jordan": "#f7d117",
+    "Kick Sauber": "#01e000",
+    "Larrousse": "#e54b4b",
+    "Ligier": "#0055a4",
+    "Lotus": "#17421f",
+    "McLaren": "#ff8700",
+    "Mercedes": "#00d2be",
+    "Minardi": "#1f3b73",
+    "Prost": "#0046ad",
+    "Racing Bulls": "#1634cb",
+    "Racing Point": "#f596c8",
+    "Red Bull": "#1e41ff",
+    "Renault": "#ffd800",
+    "Sauber": "#006eff",
+    "Stewart": "#ffffff",
+    "Toro Rosso": "#0032ff",
+    "Toyota": "#e4002b",
+    "Tyrrell": "#123c7c",
+    "Williams": "#00a3e0"
+  };
+  return colors[key] || "#5f6368";
+}
+
+function teamBadgeHtml(team) {
+  const color = constructorColor(team);
+  const darkText = ["#ffffff", "#ffd800", "#f7d117", "#b6ff00", "#d7d7d7", "#b6babd"].includes(color);
+  return `<span class="team-badge" style="--team-color:${color};color:${darkText ? "#111" : "#fff"}">${constructorCode(team)}</span><span>${team}</span>`;
+}
+
+function teamOptionLabel(driver) {
+  const code = constructorCode(driver.team);
+  return code === driver.team ? `${driver.name} - ${driver.team}` : `${driver.name} - ${code} ${driver.team}`;
 }
 
 function seasonalScore(driver, year) {
@@ -351,8 +606,8 @@ function renderRaceList() {
         <span class="race-number">${index + 1}</span>
         <span>
           <span class="race-name">${race}</span>
-          <span class="race-pick">${pick ? pick.name : "—"}</span>
-          <span class="race-meta">${pick ? `${pick.year} · ${pick.team}` : "Waiting for roll"}</span>
+          <span class="race-pick">${pick ? pick.name : "-"}</span>
+          <span class="race-meta">${pick ? `${pick.year} ${teamBadgeHtml(pick.team)}` : "Waiting for roll"}</span>
         </span>
       </article>
     `;
@@ -362,7 +617,7 @@ function renderRaceList() {
 function renderRollPanel() {
   byId("rolledLabel").textContent = state.rolledYear ? "Drawn Year" : "Next Race";
   byId("currentRaceLabel").textContent = state.rolledYear ? String(state.rolledYear) : allFilled() ? "Season complete" : currentRaceName();
-  byId("rerollText").textContent = `Re-rolls · ${state.rerolls} left`;
+  byId("rerollText").textContent = `Re-rolls / ${state.rerolls} left`;
   byId("simulateButton").disabled = !allFilled();
 
   if (!state.rolledYear) {
@@ -380,7 +635,7 @@ function renderRollPanel() {
   byId("driverSelect").disabled = false;
   byId("driverSelect").innerHTML = [
     `<option value="">Select from ${state.rolledYear}</option>`,
-    ...drivers.map((driver, index) => `<option value="${index}">${driver.name} · ${driver.team}</option>`)
+    ...drivers.map((driver, index) => `<option value="${index}">${teamOptionLabel(driver)}</option>`)
   ].join("");
   byId("skipButton").disabled = state.rerolls <= 0;
 }
@@ -398,6 +653,8 @@ function setCalendar(year) {
   state.rerolls = 3;
   state.result = [];
   byId("results").hidden = true;
+  byId("celebration").hidden = true;
+  byId("confetti").innerHTML = "";
   render();
 }
 
@@ -449,12 +706,32 @@ function runSimulation() {
       <span>
         <span class="race-name">${item.race}</span>
         <span class="race-pick">${item.pick.name}</span>
-        <span class="race-meta">${item.pick.year} · ${item.pick.team}</span>
+        <span class="race-meta">${item.pick.year} ${teamBadgeHtml(item.pick.team)}</span>
       </span>
     </article>
   `).join("");
   byId("results").hidden = false;
+  renderCelebration(wins);
   byId("results").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderCelebration(wins) {
+  const perfect = wins === state.races.length;
+  const celebration = byId("celebration");
+  const confetti = byId("confetti");
+  celebration.hidden = !perfect;
+  confetti.innerHTML = "";
+
+  if (!perfect) return;
+
+  const colors = ["#23d17b", "#e3342f", "#f1c45b", "#ffffff"];
+  const pieces = Array.from({ length: 70 }, (_, index) => {
+    const left = Math.round(Math.random() * 100);
+    const delay = (Math.random() * .45).toFixed(2);
+    const color = colors[index % colors.length];
+    return `<i style="left:${left}%;animation-delay:${delay}s;--piece-color:${color}"></i>`;
+  });
+  confetti.innerHTML = pieces.join("");
 }
 
 function newRun() {
@@ -471,7 +748,7 @@ function drawShareCanvas() {
   canvas.width = 1200;
   canvas.height = 1500;
   const ctx = canvas.getContext("2d");
-  ctx.fillStyle = "#0c101c";
+  ctx.fillStyle = "#050505";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#e3342f";
   ctx.fillRect(0, 0, 18, canvas.height);
@@ -490,13 +767,13 @@ function drawShareCanvas() {
     const row = Math.floor(index / 2);
     const x = 78 + col * 530;
     const y = 465 + row * 78;
-    ctx.fillStyle = item.won ? "#23d17b" : "#293044";
+    ctx.fillStyle = item.won ? "#23d17b" : "#2b2b2b";
     ctx.fillRect(x, y - 34, 12, 48);
     ctx.fillStyle = "#f7f4eb";
     ctx.fillText(`${index + 1}. ${item.race}`, x + 24, y - 8);
     ctx.fillStyle = "#9aa4b8";
     ctx.font = "500 23px Fira Sans, Arial, sans-serif";
-    ctx.fillText(`${item.pick.name} · ${item.pick.year}`, x + 24, y + 22);
+    ctx.fillText(`${item.pick.name} / ${item.pick.year}`, x + 24, y + 22);
     ctx.font = "700 28px Fira Sans, Arial, sans-serif";
   });
 
