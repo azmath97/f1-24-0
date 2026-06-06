@@ -132,6 +132,8 @@ button {
 
 .instructions-box {
   width: min(560px, 100%);
+  max-height: calc(100vh - 36px);
+  overflow: auto;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 6px;

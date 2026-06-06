@@ -1,3 +1,4 @@
+const publicShareUrl = "https://f124-0.vercel.app/";
 const calendarOptions = [2025, 2023, 2012, 2002, 1995];
 
 const calendars = {
@@ -868,14 +869,24 @@ function renderRaceList() {
 }
 
 function renderRollPanel() {
+  const readyToSimulate = allFilled();
+  const remainingPicks = Math.max(0, state.races.length - filledCount());
   byId("rolledLabel").textContent = state.rolledYear ? "Drawn Year" : "Next Race";
-  byId("currentRaceLabel").textContent = state.rolledYear ? String(state.rolledYear) : allFilled() ? "Season complete" : currentRaceName();
+  byId("currentRaceLabel").textContent = state.rolledYear ? String(state.rolledYear) : readyToSimulate ? "Season complete" : currentRaceName();
   byId("rerollText").textContent = `Re-rolls / ${state.rerolls} left`;
-  byId("simulateButton").disabled = !allFilled();
+  byId("simulateButton").disabled = !readyToSimulate;
+  byId("simulateButton").setAttribute("aria-disabled", String(!readyToSimulate));
+  byId("simulateButton").innerHTML = `
+    <span class="flag-mark" aria-hidden="true"></span>
+    ${readyToSimulate ? "Simulate" : `Pick ${remainingPicks} More`}
+  `;
+  byId("rollButton").disabled = readyToSimulate;
 
   if (!state.rolledYear) {
-    byId("rollHint").textContent = "Roll the dice to draw any F1 driver year from 1990 to 2025.";
-    byId("rollButtonText").textContent = "Roll Year";
+    byId("rollHint").textContent = readyToSimulate
+      ? "Full calendar complete. Simulate when you are ready."
+      : "Roll the dice to draw any F1 driver year from 1990 to 2025.";
+    byId("rollButtonText").textContent = readyToSimulate ? "All Set" : "Roll Year";
     byId("driverPickerButton").textContent = "Roll first";
     byId("driverPickerButton").disabled = true;
     byId("driverOptions").innerHTML = "";
@@ -887,7 +898,7 @@ function renderRollPanel() {
   const drivers = pickerDrivers();
   const winner = sameYearWinnerName();
   byId("rollHint").textContent = winner
-    ? `Race: ${currentRaceName()}. Same-year winner ${winner} is first and locks the win.`
+    ? `Race: ${currentRaceName()}. Same-year winner ${winner} is first and gets a small race-result bonus. Overall season form still matters most.`
     : `Race: ${currentRaceName()}. Choose one driver who raced in ${state.rolledYear}.`;
   byId("rollButtonText").textContent = "Roll Again";
   byId("driverPickerButton").textContent = `Select from ${state.rolledYear}`;
@@ -906,7 +917,9 @@ function renderRollPanel() {
 }
 
 function allFilled() {
-  return filledCount() === state.races.length;
+  return state.races.length > 0
+    && state.picks.length === state.races.length
+    && state.picks.every(Boolean);
 }
 
 function setCalendar(year) {
@@ -948,23 +961,16 @@ function chooseDriver(value) {
 }
 
 function simulatePick(pick, race, index) {
-  if (isSameYearRaceWinner(pick, race)) {
-    return {
-      race,
-      pick,
-      won: true
-    };
-  }
-
   const streetRace = ["Monaco", "Singapore", "Azerbaijan", "Las Vegas", "Saudi Arabia", "Miami"].includes(race);
   const powerRace = ["Italy", "Belgium", "Great Britain", "Qatar", "Austria"].includes(race);
-  const historyBonus = pick.tags.includes("Champion") ? 4 : 0;
-  const streetBonus = streetRace && (pick.tags.includes("Street") || pick.tags.includes("Wet")) ? 5 : 0;
-  const powerBonus = powerRace && (pick.tags.includes("Power") || pick.tags.includes("Complete")) ? 4 : 0;
+  const historyBonus = pick.tags.includes("Champion") ? 2.5 : 0;
+  const streetBonus = streetRace && (pick.tags.includes("Street") || pick.tags.includes("Wet")) ? 3.5 : 0;
+  const powerBonus = powerRace && (pick.tags.includes("Power") || pick.tags.includes("Complete")) ? 3 : 0;
+  const raceResultBonus = isSameYearRaceWinner(pick, race) ? 3.5 : 0;
   const calendarPressure = index > state.races.length - 4 ? -1 : 0;
-  const randomContext = Math.random() * 13 - 6;
-  const score = pick.score + historyBonus + streetBonus + powerBonus + calendarPressure + randomContext;
-  const probability = 1 / (1 + Math.exp(-(score - 86) / 6));
+  const randomContext = Math.random() * 10 - 5;
+  const score = pick.score + historyBonus + streetBonus + powerBonus + raceResultBonus + calendarPressure + randomContext;
+  const probability = 1 / (1 + Math.exp(-(score - 87) / 5.8));
   return {
     race,
     pick,
@@ -973,7 +979,15 @@ function simulatePick(pick, race, index) {
 }
 
 function runSimulation() {
-  if (!allFilled()) return;
+  if (!allFilled()) {
+    state.result = [];
+    byId("results").hidden = true;
+    const remainingPicks = Math.max(0, state.races.length - filledCount());
+    byId("rollHint").textContent = `Pick every circuit first. ${remainingPicks} more ${remainingPicks === 1 ? "race" : "races"} left before simulation.`;
+    byId("simulateButton").disabled = true;
+    byId("simulateButton").setAttribute("aria-disabled", "true");
+    return;
+  }
   state.result = state.races.map((race, index) => simulatePick(state.picks[index], race, index));
   const wins = state.result.filter(item => item.won).length;
   byId("resultScore").textContent = `${wins}/${state.races.length}`;
@@ -1073,7 +1087,7 @@ function downloadResultCard() {
 function shareOnTwitter() {
   if (!state.result.length) return;
   const text = encodeURIComponent(makeShareText());
-  const url = encodeURIComponent("https://github.com/azmath97/f1-24-0");
+  const url = encodeURIComponent(publicShareUrl);
   window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank", "noopener,noreferrer");
 }
 
