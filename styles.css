@@ -1,0 +1,509 @@
+:root {
+  color-scheme: dark;
+  --bg: #090909;
+  --paper: #111111;
+  --paper-2: #171717;
+  --paper-3: #222222;
+  --text: #f7f4eb;
+  --muted: #9d978b;
+  --line: #33312d;
+  --accent: #e3342f;
+  --gold: #f1c45b;
+  --green: #23d17b;
+  --shadow: 0 26px 80px rgba(0, 0, 0, .38);
+}
+
+body.light {
+  color-scheme: light;
+  --bg: #f6f1e8;
+  --paper: #fffaf0;
+  --paper-2: #f0e9dc;
+  --paper-3: #e6ddce;
+  --text: #15120e;
+  --muted: #6c6254;
+  --line: #d4c7b4;
+  --shadow: 0 22px 70px rgba(65, 45, 18, .16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(227, 52, 47, .18), transparent 22rem),
+    radial-gradient(circle at 85% 10%, rgba(241, 196, 91, .12), transparent 22rem),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.nav-left,
+.mode-row,
+.season-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mini-button,
+.mode-button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mini-button.is-active,
+.mode-button.is-active,
+.season-button.is-active {
+  color: var(--text);
+  border-color: var(--text);
+  background: var(--paper-2);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(330px, .72fr);
+  gap: 18px;
+  align-items: end;
+  padding: 36px 0 22px;
+}
+
+.identity {
+  min-width: 0;
+}
+
+.eyebrow,
+.label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.score-logo {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(8px, 2vw, 22px);
+  margin-bottom: 16px;
+  font-size: clamp(78px, 18vw, 216px);
+  font-weight: 1000;
+  letter-spacing: 0;
+  line-height: .78;
+}
+
+.score-logo span:nth-child(2) {
+  color: var(--accent);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 850px;
+  font-size: clamp(34px, 6.2vw, 82px);
+  line-height: .94;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: clamp(23px, 3vw, 34px);
+  line-height: 1;
+}
+
+.intro {
+  max-width: 680px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.control-panel,
+.roll-panel,
+.race-panel,
+.results {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.control-panel {
+  padding: 16px;
+}
+
+.panel-header,
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.record {
+  display: grid;
+  place-items: center;
+  min-width: 74px;
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--paper-2);
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+.season-grid {
+  margin: 16px 0 14px;
+}
+
+.season-button {
+  min-height: 40px;
+  min-width: 74px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 1000;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: minmax(310px, .72fr) minmax(0, 1.28fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.roll-panel,
+.race-panel,
+.results {
+  padding: 16px;
+}
+
+.roll-panel {
+  position: sticky;
+  top: 14px;
+}
+
+.rolled-card {
+  min-height: 148px;
+  padding: 16px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(227, 52, 47, .18), transparent 55%),
+    var(--paper-2);
+}
+
+#currentRaceLabel {
+  margin-bottom: 14px;
+}
+
+#rollHint {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.roll-button,
+.simulate-button,
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 54px;
+  border-radius: 8px;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.roll-button {
+  margin-top: 12px;
+  border: 0;
+  color: #fff;
+  background: var(--accent);
+}
+
+.dice-mark,
+.flag-mark,
+.reset-mark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.dice-mark {
+  border: 2px solid currentColor;
+  border-radius: 6px;
+}
+
+.dice-mark::before {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 9px 0 currentColor, 4.5px 4.5px currentColor, 0 9px currentColor, 9px 9px currentColor;
+  content: "";
+}
+
+.flag-mark {
+  border-left: 2px solid currentColor;
+}
+
+.flag-mark::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 13px;
+  height: 9px;
+  border: 2px solid currentColor;
+  border-left: 0;
+  content: "";
+}
+
+.reset-mark {
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.reset-mark::after {
+  position: absolute;
+  right: -1px;
+  top: 1px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(20deg);
+  content: "";
+}
+
+.reroll-line {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.driver-select-wrap {
+  display: block;
+}
+
+select {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--paper-2);
+  font-weight: 800;
+}
+
+select:disabled,
+button:disabled {
+  cursor: not-allowed;
+  opacity: .48;
+}
+
+.ghost-button {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: transparent;
+}
+
+.simulate-button {
+  width: auto;
+  min-width: 148px;
+  padding: 0 16px;
+  border: 0;
+  color: #fff;
+  background: #252525;
+}
+
+body.light .simulate-button {
+  background: #181511;
+}
+
+.race-list,
+.result-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.race-slot,
+.result-slot {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 76px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-2);
+}
+
+.race-slot.current {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.race-slot.filled {
+  background:
+    linear-gradient(135deg, rgba(35, 209, 123, .12), transparent 54%),
+    var(--paper-2);
+}
+
+.race-number {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--paper-3);
+  font-weight: 1000;
+}
+
+.race-name,
+.race-pick,
+.race-meta {
+  display: block;
+  min-width: 0;
+}
+
+.race-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 1000;
+}
+
+.race-pick {
+  margin-top: 4px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.race-meta {
+  margin-top: 3px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.results {
+  margin-top: 18px;
+}
+
+#resultScore {
+  font-size: clamp(48px, 8vw, 92px);
+}
+
+.result-slot.win {
+  border: 2px solid var(--green);
+}
+
+.result-slot.loss {
+  border: 0;
+}
+
+.result-slot .race-name,
+.result-slot .race-pick {
+  white-space: normal;
+}
+
+@media (max-width: 880px) {
+  .hero,
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roll-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .app {
+    padding: 12px;
+  }
+
+  .top-nav,
+  .panel-header,
+  .section-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .score-logo {
+    font-size: clamp(82px, 27vw, 126px);
+  }
+
+  .race-list,
+  .result-list {
+    grid-template-columns: 1fr;
+  }
+
+  .simulate-button {
+    width: 100%;
+  }
+}

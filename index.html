@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>F1 24-0</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <nav class="top-nav" aria-label="Game controls">
+        <div class="nav-left">
+          <button class="mini-button is-active" type="button">EN</button>
+          <button class="mini-button" type="button">PT</button>
+          <button class="mini-button" type="button">ES</button>
+        </div>
+        <button class="mini-button" id="themeButton" type="button" aria-label="Toggle light or dark theme">
+          LIGHT
+        </button>
+      </nav>
+
+      <section class="hero">
+        <div class="identity">
+          <p class="eyebrow">F1 DYNASTY · 1990 — 2025</p>
+          <div class="score-logo" aria-label="24 to 0">
+            <span>24</span>
+            <span>–</span>
+            <span>0</span>
+          </div>
+          <h1>
+            Roll the dice.<br>
+            Build a perfect F1 season.
+          </h1>
+          <p class="intro">
+            Pick a calendar season, roll a random driver year, choose one driver who raced that year, and fill every Grand Prix in order.
+          </p>
+        </div>
+
+        <section class="control-panel" aria-label="Season setup">
+          <div class="panel-header">
+            <div>
+              <span class="label">Calendar Season</span>
+              <strong id="calendarLabel">2025</strong>
+            </div>
+            <span class="record" id="fillRecord">0/24</span>
+          </div>
+          <div class="season-grid" id="seasonButtons" role="group" aria-label="Choose calendar season"></div>
+          <div class="mode-row" aria-label="Difficulty">
+            <button class="mode-button is-active" type="button">Classic</button>
+            <button class="mode-button" type="button">From memory</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="game-grid">
+        <section class="roll-panel" aria-label="Roll and choose driver">
+          <div class="rolled-card" id="rolledCard">
+            <span class="label">Current Race</span>
+            <h2 id="currentRaceLabel">Australia</h2>
+            <p id="rollHint">Roll the dice to draw a driver year.</p>
+          </div>
+
+          <button class="roll-button" id="rollButton" type="button">
+            <span class="dice-mark" aria-hidden="true"></span>
+            <span id="rollButtonText">Roll Year</span>
+          </button>
+
+          <div class="reroll-line">
+            <span id="rerollText">Re-rolls · 3 left</span>
+          </div>
+
+          <label class="driver-select-wrap" for="driverSelect">
+            <span class="label">Pick A Driver</span>
+            <select id="driverSelect" disabled>
+              <option value="">Roll first</option>
+            </select>
+          </label>
+
+          <button class="ghost-button" id="skipButton" type="button" disabled>
+            No driver fits · roll again
+          </button>
+        </section>
+
+        <section class="race-panel" aria-label="Race list">
+          <div class="section-head">
+            <div>
+              <span class="label">Race List</span>
+              <h2 id="raceListTitle">2025 Calendar</h2>
+            </div>
+            <button class="simulate-button" id="simulateButton" type="button" disabled>
+              <span class="flag-mark" aria-hidden="true"></span>
+              Simulate
+            </button>
+          </div>
+          <div class="race-list" id="raceList"></div>
+        </section>
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="section-head">
+          <div>
+            <span class="label">Result</span>
+            <h2 id="resultScore">0/24</h2>
+          </div>
+          <button class="simulate-button" id="newGameButton" type="button">
+            <span class="reset-mark" aria-hidden="true"></span>
+            New Run
+          </button>
+        </div>
+        <div class="result-list" id="resultList"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
