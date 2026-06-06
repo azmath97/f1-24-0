@@ -10,9 +10,7 @@
     <main class="app">
       <nav class="top-nav" aria-label="Game controls">
         <div class="nav-left">
-          <button class="mini-button is-active" type="button">EN</button>
-          <button class="mini-button" type="button">PT</button>
-          <button class="mini-button" type="button">ES</button>
+          <span class="lang-pill">EN</span>
         </div>
         <button class="mini-button" id="themeButton" type="button" aria-label="Toggle light or dark theme">
           LIGHT
@@ -55,7 +53,7 @@
       <section class="game-grid">
         <section class="roll-panel" aria-label="Roll and choose driver">
           <div class="rolled-card" id="rolledCard">
-            <span class="label">Current Race</span>
+            <span class="label" id="rolledLabel">Next Race</span>
             <h2 id="currentRaceLabel">Australia</h2>
             <p id="rollHint">Roll the dice to draw a driver year.</p>
           </div>
@@ -102,11 +100,24 @@
             <span class="label">Result</span>
             <h2 id="resultScore">0/24</h2>
           </div>
-          <button class="simulate-button" id="newGameButton" type="button">
-            <span class="reset-mark" aria-hidden="true"></span>
-            New Run
-          </button>
+          <div class="share-actions">
+            <button class="simulate-button" id="downloadCardButton" type="button">
+              Download Card
+            </button>
+            <button class="simulate-button" id="shareTwitterButton" type="button">
+              Share On X
+            </button>
+            <button class="simulate-button" id="newGameButton" type="button">
+              <span class="reset-mark" aria-hidden="true"></span>
+              New Run
+            </button>
+          </div>
         </div>
+        <article class="share-card" id="shareCard" aria-label="Share card">
+          <span class="label">F1 24-0</span>
+          <strong id="shareScore">0/24</strong>
+          <span id="shareSeason">2025 Calendar</span>
+        </article>
         <div class="result-list" id="resultList"></div>
       </section>
     </main>

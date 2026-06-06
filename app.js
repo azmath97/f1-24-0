@@ -96,6 +96,74 @@ const driverCareers = [
   entry("Isack Hadjar", 2025, 2025, 76, ["Racing Bulls"], ["Rookie"])
 ];
 
+const teamStints = {
+  "Ayrton Senna": [[1990, 1993, "McLaren"], [1994, 1994, "Williams"]],
+  "Alain Prost": [[1990, 1991, "Ferrari"], [1993, 1993, "Williams"]],
+  "Nigel Mansell": [[1990, 1992, "Williams"], [1994, 1994, "Williams"], [1995, 1995, "McLaren"]],
+  "Nelson Piquet": [[1990, 1991, "Benetton"]],
+  "Gerhard Berger": [[1990, 1992, "McLaren"], [1993, 1995, "Ferrari"], [1996, 1997, "Benetton"]],
+  "Jean Alesi": [[1990, 1990, "Tyrrell"], [1991, 1995, "Ferrari"], [1996, 1997, "Benetton"], [1998, 1999, "Sauber"], [2000, 2001, "Prost/Jordan"]],
+  "Riccardo Patrese": [[1990, 1992, "Williams"], [1993, 1993, "Benetton"]],
+  "Michael Schumacher": [[1991, 1991, "Jordan/Benetton"], [1992, 1995, "Benetton"], [1996, 2006, "Ferrari"]],
+  "Mika Hakkinen": [[1991, 1992, "Lotus"], [1993, 2001, "McLaren"]],
+  "Damon Hill": [[1992, 1992, "Brabham"], [1993, 1996, "Williams"], [1997, 1997, "Arrows"], [1998, 1999, "Jordan"]],
+  "Rubens Barrichello": [[1993, 1996, "Jordan"], [1997, 1999, "Stewart"], [2000, 2005, "Ferrari"], [2006, 2008, "Honda"], [2009, 2009, "Brawn"], [2010, 2011, "Williams"]],
+  "David Coulthard": [[1994, 1995, "Williams"], [1996, 2004, "McLaren"], [2005, 2008, "Red Bull"]],
+  "Jacques Villeneuve": [[1996, 1998, "Williams"], [1999, 2003, "BAR"], [2004, 2004, "Renault"], [2005, 2006, "Sauber/BMW Sauber"]],
+  "Heinz-Harald Frentzen": [[1994, 1996, "Sauber"], [1997, 1998, "Williams"], [1999, 2001, "Jordan/Prost"], [2002, 2003, "Arrows/Sauber"]],
+  "Eddie Irvine": [[1993, 1995, "Jordan"], [1996, 1999, "Ferrari"], [2000, 2002, "Jaguar"]],
+  "Ralf Schumacher": [[1997, 1998, "Jordan"], [1999, 2004, "Williams"], [2005, 2007, "Toyota"]],
+  "Giancarlo Fisichella": [[1996, 1997, "Minardi/Jordan"], [1998, 2001, "Benetton"], [2002, 2003, "Jordan"], [2004, 2004, "Sauber"], [2005, 2007, "Renault"], [2008, 2009, "Force India/Ferrari"]],
+  "Juan Pablo Montoya": [[2001, 2004, "Williams"], [2005, 2006, "McLaren"]],
+  "Kimi Raikkonen": [[2001, 2001, "Sauber"], [2002, 2006, "McLaren"], [2007, 2009, "Ferrari"], [2012, 2013, "Lotus"], [2014, 2018, "Ferrari"], [2019, 2021, "Alfa Romeo"]],
+  "Fernando Alonso": [[2001, 2001, "Minardi"], [2003, 2006, "Renault"], [2007, 2007, "McLaren"], [2008, 2009, "Renault"], [2010, 2014, "Ferrari"], [2015, 2018, "McLaren"], [2021, 2022, "Alpine"], [2023, 2025, "Aston Martin"]],
+  "Jenson Button": [[2000, 2000, "Williams"], [2001, 2002, "Benetton/Renault"], [2003, 2005, "BAR"], [2006, 2008, "Honda"], [2009, 2009, "Brawn"], [2010, 2017, "McLaren"]],
+  "Jarno Trulli": [[1997, 1999, "Minardi/Prost"], [2000, 2001, "Jordan"], [2002, 2004, "Renault"], [2004, 2009, "Toyota"], [2010, 2011, "Lotus"]],
+  "Nick Heidfeld": [[2000, 2000, "Prost"], [2001, 2003, "Sauber"], [2004, 2004, "Jordan"], [2005, 2005, "Williams"], [2006, 2009, "BMW Sauber"], [2010, 2011, "Mercedes/Renault"]],
+  "Mark Webber": [[2002, 2002, "Minardi"], [2003, 2004, "Jaguar"], [2005, 2006, "Williams"], [2007, 2013, "Red Bull"]],
+  "Felipe Massa": [[2002, 2002, "Sauber"], [2004, 2005, "Sauber"], [2006, 2013, "Ferrari"], [2014, 2017, "Williams"]],
+  "Takuma Sato": [[2002, 2002, "Jordan"], [2003, 2005, "BAR"], [2006, 2008, "Super Aguri"]],
+  "Nico Rosberg": [[2006, 2009, "Williams"], [2010, 2016, "Mercedes"]],
+  "Robert Kubica": [[2006, 2009, "BMW Sauber"], [2010, 2010, "Renault"], [2019, 2019, "Williams"], [2021, 2021, "Alfa Romeo"]],
+  "Lewis Hamilton": [[2007, 2012, "McLaren"], [2013, 2024, "Mercedes"], [2025, 2025, "Ferrari"]],
+  "Sebastian Vettel": [[2007, 2007, "BMW Sauber/Toro Rosso"], [2008, 2008, "Toro Rosso"], [2009, 2014, "Red Bull"], [2015, 2020, "Ferrari"], [2021, 2022, "Aston Martin"]],
+  "Heikki Kovalainen": [[2007, 2007, "Renault"], [2008, 2009, "McLaren"], [2010, 2013, "Lotus/Caterham"]],
+  "Timo Glock": [[2004, 2004, "Jordan"], [2008, 2009, "Toyota"], [2010, 2012, "Virgin/Marussia"]],
+  "Adrian Sutil": [[2007, 2007, "Spyker"], [2008, 2011, "Force India"], [2013, 2013, "Force India"], [2014, 2014, "Sauber"]],
+  "Kamui Kobayashi": [[2009, 2009, "Toyota"], [2010, 2012, "Sauber"], [2014, 2014, "Caterham"]],
+  "Vitaly Petrov": [[2010, 2011, "Renault"], [2012, 2012, "Caterham"]],
+  "Sergio Perez": [[2011, 2012, "Sauber"], [2013, 2013, "McLaren"], [2014, 2018, "Force India"], [2019, 2020, "Racing Point"], [2021, 2024, "Red Bull"]],
+  "Daniel Ricciardo": [[2011, 2011, "HRT"], [2012, 2013, "Toro Rosso"], [2014, 2018, "Red Bull"], [2019, 2020, "Renault"], [2021, 2022, "McLaren"], [2023, 2024, "AlphaTauri/RB"]],
+  "Romain Grosjean": [[2009, 2009, "Renault"], [2012, 2015, "Lotus"], [2016, 2020, "Haas"]],
+  "Pastor Maldonado": [[2011, 2013, "Williams"], [2014, 2015, "Lotus"]],
+  "Valtteri Bottas": [[2013, 2016, "Williams"], [2017, 2021, "Mercedes"], [2022, 2025, "Alfa Romeo/Kick Sauber"]],
+  "Max Verstappen": [[2015, 2016, "Toro Rosso/Red Bull"], [2017, 2025, "Red Bull"]],
+  "Carlos Sainz": [[2015, 2017, "Toro Rosso/Renault"], [2018, 2018, "Renault"], [2019, 2020, "McLaren"], [2021, 2024, "Ferrari"], [2025, 2025, "Williams"]],
+  "Daniil Kvyat": [[2014, 2014, "Toro Rosso"], [2015, 2016, "Red Bull/Toro Rosso"], [2017, 2017, "Toro Rosso"], [2019, 2020, "Toro Rosso/AlphaTauri"]],
+  "Kevin Magnussen": [[2014, 2014, "McLaren"], [2016, 2016, "Renault"], [2017, 2020, "Haas"], [2022, 2024, "Haas"]],
+  "Nico Hulkenberg": [[2010, 2010, "Williams"], [2012, 2012, "Force India"], [2013, 2013, "Sauber"], [2014, 2016, "Force India"], [2017, 2019, "Renault"], [2020, 2022, "Racing Point/Aston Martin"], [2023, 2024, "Haas"], [2025, 2025, "Kick Sauber"]],
+  "Esteban Ocon": [[2016, 2016, "Manor"], [2017, 2018, "Force India"], [2020, 2020, "Renault"], [2021, 2024, "Alpine"], [2025, 2025, "Haas"]],
+  "Pierre Gasly": [[2017, 2018, "Toro Rosso"], [2019, 2019, "Red Bull/Toro Rosso"], [2020, 2022, "AlphaTauri"], [2023, 2025, "Alpine"]],
+  "Charles Leclerc": [[2018, 2018, "Sauber"], [2019, 2025, "Ferrari"]],
+  "Lando Norris": [[2019, 2025, "McLaren"]],
+  "George Russell": [[2019, 2021, "Williams"], [2022, 2025, "Mercedes"]],
+  "Alex Albon": [[2019, 2019, "Toro Rosso/Red Bull"], [2020, 2020, "Red Bull"], [2022, 2025, "Williams"]],
+  "Lance Stroll": [[2017, 2018, "Williams"], [2019, 2020, "Racing Point"], [2021, 2025, "Aston Martin"]],
+  "Oscar Piastri": [[2023, 2025, "McLaren"]],
+  "Yuki Tsunoda": [[2021, 2023, "AlphaTauri"], [2024, 2025, "RB/Red Bull"]],
+  "Zhou Guanyu": [[2022, 2024, "Alfa Romeo/Kick Sauber"]],
+  "Logan Sargeant": [[2023, 2024, "Williams"]],
+  "Liam Lawson": [[2023, 2025, "AlphaTauri/RB/Red Bull"]],
+  "Franco Colapinto": [[2024, 2025, "Williams/Alpine"]],
+  "Oliver Bearman": [[2024, 2024, "Ferrari"], [2025, 2025, "Haas"]],
+  "Andrea Kimi Antonelli": [[2025, 2025, "Mercedes"]],
+  "Gabriel Bortoleto": [[2025, 2025, "Kick Sauber"]],
+  "Jack Doohan": [[2025, 2025, "Alpine"]],
+  "Isack Hadjar": [[2025, 2025, "Racing Bulls"]]
+};
+
+const seasonMetrics = buildSeasonMetrics();
+
 const state = {
   calendarYear: 2025,
   races: [...calendars[2025]],
@@ -124,29 +192,134 @@ function currentRaceName() {
 
 function driversForYear(year) {
   return driverCareers
-    .filter(driver => driver.from <= year && driver.to >= year)
+    .filter(driver => racedInYear(driver, year))
     .map(driver => ({
       ...driver,
       year,
       team: teamForYear(driver, year),
-      score: seasonalScore(driver, year)
+      score: seasonalScore(driver, year),
+      metrics: metricsFor(driver.name, year)
     }))
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function teamForYear(driver, year) {
+  const stints = teamStints[driver.name];
+  const stint = stints?.find(([from, to]) => year >= from && year <= to);
+  if (stint) return stint[2];
   if (driver.teams.length === 1) return driver.teams[0];
   const span = Math.max(1, driver.to - driver.from + 1);
   const index = Math.min(driver.teams.length - 1, Math.floor(((year - driver.from) / span) * driver.teams.length));
   return driver.teams[index];
 }
 
+function racedInYear(driver, year) {
+  const stints = teamStints[driver.name];
+  if (stints) return stints.some(([from, to]) => year >= from && year <= to);
+  return driver.from <= year && driver.to >= year;
+}
+
 function seasonalScore(driver, year) {
-  const mid = (driver.from + driver.to) / 2;
-  const distance = Math.abs(year - mid);
-  const ageCurve = Math.max(-5, 4 - distance * .35);
-  const randomSeed = ((year * driver.name.length) % 9) - 4;
-  return Math.round(driver.rating + ageCurve + randomSeed * .35);
+  const metrics = metricsFor(driver.name, year);
+  if (metrics) {
+    return scoreFromMetrics(metrics);
+  }
+
+  const careerPosition = driver.rating >= 96 ? 4 : driver.rating >= 92 ? 6 : driver.rating >= 88 ? 9 : 13;
+  const activeSpan = Math.max(1, driver.to - driver.from + 1);
+  const seasonIndex = year - driver.from;
+  const experienceCurve = Math.min(3, seasonIndex * .55);
+  const lateCareerFade = Math.max(0, seasonIndex - activeSpan + 3) * .9;
+  return Math.round(Math.max(58, Math.min(84, driver.rating - 10 + experienceCurve - lateCareerFade - careerPosition * .18)));
+}
+
+function metricsFor(name, year) {
+  return seasonMetrics.get(`${name}|${year}`) || null;
+}
+
+function metric(position, wins, podiums, poles, starts, note = "") {
+  return { position, wins, podiums, poles, starts, note };
+}
+
+function scoreFromMetrics(metrics) {
+  const starts = Math.max(1, metrics.starts);
+  const championshipScore = {
+    1: 16,
+    2: 13,
+    3: 11,
+    4: 8.5,
+    5: 7,
+    6: 6,
+    7: 5,
+    8: 4,
+    9: 3,
+    10: 2.5
+  }[metrics.position] || 1;
+
+  const winScore = (metrics.wins / starts) * 12;
+  const podiumScore = (metrics.podiums / starts) * 6;
+  const poleScore = (metrics.poles / starts) * 4;
+  const championEdge = metrics.position === 1 ? 2.25 : 0;
+  const reliability = Math.min(2, metrics.starts / 12);
+  return Math.round(Math.max(68, Math.min(99, 63 + championshipScore + winScore + podiumScore + poleScore + championEdge + reliability)));
+}
+
+function buildSeasonMetrics() {
+  const rows = [
+    ["Ayrton Senna", 1990, metric(1, 6, 11, 10, 16, "World Champion")],
+    ["Ayrton Senna", 1991, metric(1, 7, 12, 8, 16, "World Champion")],
+    ["Nigel Mansell", 1992, metric(1, 9, 12, 14, 16, "World Champion")],
+    ["Alain Prost", 1993, metric(1, 7, 12, 13, 16, "World Champion")],
+    ["Michael Schumacher", 1994, metric(1, 8, 10, 6, 16, "World Champion")],
+    ["Michael Schumacher", 1995, metric(1, 9, 11, 4, 17, "World Champion")],
+    ["Damon Hill", 1996, metric(1, 8, 10, 9, 16, "World Champion")],
+    ["Jacques Villeneuve", 1997, metric(1, 7, 8, 10, 17, "World Champion")],
+    ["Mika Hakkinen", 1998, metric(1, 8, 11, 9, 16, "World Champion")],
+    ["Mika Hakkinen", 1999, metric(1, 5, 10, 11, 16, "World Champion")],
+    ["Michael Schumacher", 2000, metric(1, 9, 12, 9, 17, "World Champion")],
+    ["Michael Schumacher", 2001, metric(1, 9, 14, 11, 17, "World Champion")],
+    ["Michael Schumacher", 2002, metric(1, 11, 17, 7, 17, "World Champion")],
+    ["Michael Schumacher", 2003, metric(1, 6, 8, 5, 16, "World Champion")],
+    ["Michael Schumacher", 2004, metric(1, 13, 15, 8, 18, "World Champion")],
+    ["Fernando Alonso", 2005, metric(1, 7, 15, 6, 19, "World Champion")],
+    ["Fernando Alonso", 2006, metric(1, 7, 14, 6, 18, "World Champion")],
+    ["Kimi Raikkonen", 2007, metric(1, 6, 12, 3, 17, "World Champion")],
+    ["Lewis Hamilton", 2008, metric(1, 5, 10, 7, 18, "World Champion")],
+    ["Jenson Button", 2009, metric(1, 6, 9, 4, 17, "World Champion")],
+    ["Sebastian Vettel", 2010, metric(1, 5, 10, 10, 19, "World Champion")],
+    ["Sebastian Vettel", 2011, metric(1, 11, 17, 15, 19, "World Champion")],
+    ["Sebastian Vettel", 2012, metric(1, 5, 10, 6, 20, "World Champion")],
+    ["Sebastian Vettel", 2013, metric(1, 13, 16, 9, 19, "World Champion")],
+    ["Lewis Hamilton", 2014, metric(1, 11, 16, 7, 19, "World Champion")],
+    ["Lewis Hamilton", 2015, metric(1, 10, 17, 11, 19, "World Champion")],
+    ["Nico Rosberg", 2016, metric(1, 9, 16, 8, 21, "World Champion")],
+    ["Lewis Hamilton", 2017, metric(1, 9, 13, 11, 20, "World Champion")],
+    ["Lewis Hamilton", 2018, metric(1, 11, 17, 11, 21, "World Champion")],
+    ["Lewis Hamilton", 2019, metric(1, 11, 17, 5, 21, "World Champion")],
+    ["Lewis Hamilton", 2020, metric(1, 11, 14, 10, 16, "World Champion")],
+    ["Max Verstappen", 2021, metric(1, 10, 18, 10, 22, "World Champion")],
+    ["Max Verstappen", 2022, metric(1, 15, 17, 7, 22, "World Champion")],
+    ["Max Verstappen", 2023, metric(1, 19, 21, 12, 22, "World Champion")],
+    ["Max Verstappen", 2024, metric(1, 9, 14, 8, 24, "World Champion")],
+    ["Lando Norris", 2025, metric(1, 7, 18, 6, 24, "World Champion")],
+    ["Max Verstappen", 2025, metric(2, 8, 14, 5, 24, "Runner-Up")],
+    ["Oscar Piastri", 2025, metric(3, 6, 15, 4, 24, "Top 3")],
+    ["Lewis Hamilton", 2016, metric(2, 10, 17, 12, 21, "Runner-Up")],
+    ["Daniel Ricciardo", 2016, metric(3, 1, 8, 0, 21, "Top 3")],
+    ["Fernando Alonso", 2012, metric(2, 3, 13, 2, 20, "Elite Underdog")],
+    ["Kimi Raikkonen", 2005, metric(2, 7, 12, 5, 19, "Elite Pace")],
+    ["Kimi Raikkonen", 2003, metric(2, 1, 10, 2, 16, "Runner-Up")],
+    ["Juan Pablo Montoya", 2003, metric(3, 2, 9, 1, 16, "Top 3")],
+    ["Felipe Massa", 2008, metric(2, 6, 10, 6, 18, "Runner-Up")],
+    ["Sebastian Vettel", 2017, metric(2, 5, 13, 4, 20, "Runner-Up")],
+    ["Charles Leclerc", 2022, metric(2, 3, 11, 9, 22, "Runner-Up")],
+    ["Lando Norris", 2024, metric(2, 4, 13, 8, 24, "Runner-Up")],
+    ["Charles Leclerc", 2024, metric(3, 3, 13, 3, 24, "Top 3")],
+    ["Valtteri Bottas", 2019, metric(2, 4, 15, 5, 21, "Runner-Up")],
+    ["Valtteri Bottas", 2020, metric(2, 2, 11, 5, 17, "Runner-Up")]
+  ];
+
+  return new Map(rows.map(([name, year, data]) => [`${name}|${year}`, data]));
 }
 
 function renderSeasonButtons() {
@@ -187,7 +360,8 @@ function renderRaceList() {
 }
 
 function renderRollPanel() {
-  byId("currentRaceLabel").textContent = allFilled() ? "Season complete" : currentRaceName();
+  byId("rolledLabel").textContent = state.rolledYear ? "Drawn Year" : "Next Race";
+  byId("currentRaceLabel").textContent = state.rolledYear ? String(state.rolledYear) : allFilled() ? "Season complete" : currentRaceName();
   byId("rerollText").textContent = `Re-rolls · ${state.rerolls} left`;
   byId("simulateButton").disabled = !allFilled();
 
@@ -201,12 +375,12 @@ function renderRollPanel() {
   }
 
   const drivers = driversForYear(state.rolledYear);
-  byId("rollHint").textContent = `Drawn year: ${state.rolledYear}. Choose one driver who raced that season for ${currentRaceName()}.`;
+  byId("rollHint").textContent = `Race: ${currentRaceName()}. Choose one driver who raced in ${state.rolledYear}.`;
   byId("rollButtonText").textContent = "Roll Again";
   byId("driverSelect").disabled = false;
   byId("driverSelect").innerHTML = [
     `<option value="">Select from ${state.rolledYear}</option>`,
-    ...drivers.map((driver, index) => `<option value="${index}">${driver.name} · ${driver.team} · ${driver.score}</option>`)
+    ...drivers.map((driver, index) => `<option value="${index}">${driver.name} · ${driver.team}</option>`)
   ].join("");
   byId("skipButton").disabled = state.rerolls <= 0;
 }
@@ -267,6 +441,8 @@ function runSimulation() {
   state.result = state.races.map((race, index) => simulatePick(state.picks[index], race, index));
   const wins = state.result.filter(item => item.won).length;
   byId("resultScore").textContent = `${wins}/${state.races.length}`;
+  byId("shareScore").textContent = `${wins}/${state.races.length}`;
+  byId("shareSeason").textContent = `${state.calendarYear} Calendar`;
   byId("resultList").innerHTML = state.result.map((item, index) => `
     <article class="result-slot ${item.won ? "win" : "loss"}">
       <span class="race-number">${index + 1}</span>
@@ -285,6 +461,66 @@ function newRun() {
   setCalendar(state.calendarYear);
 }
 
+function makeShareText() {
+  const score = byId("resultScore").textContent;
+  return `I went ${score} in F1 24-0. Can you go 24-0?`;
+}
+
+function drawShareCanvas() {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1200;
+  canvas.height = 1500;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#0c101c";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#e3342f";
+  ctx.fillRect(0, 0, 18, canvas.height);
+  ctx.fillStyle = "#f7f4eb";
+  ctx.font = "900 70px Fira Sans, Arial, sans-serif";
+  ctx.fillText("F1 24-0", 76, 110);
+  ctx.font = "900 190px Fira Sans, Arial, sans-serif";
+  ctx.fillText(byId("resultScore").textContent, 72, 300);
+  ctx.font = "700 34px Fira Sans, Arial, sans-serif";
+  ctx.fillStyle = "#9aa4b8";
+  ctx.fillText(`${state.calendarYear} Calendar`, 78, 365);
+
+  ctx.font = "700 28px Fira Sans, Arial, sans-serif";
+  state.result.slice(0, 24).forEach((item, index) => {
+    const col = index % 2;
+    const row = Math.floor(index / 2);
+    const x = 78 + col * 530;
+    const y = 465 + row * 78;
+    ctx.fillStyle = item.won ? "#23d17b" : "#293044";
+    ctx.fillRect(x, y - 34, 12, 48);
+    ctx.fillStyle = "#f7f4eb";
+    ctx.fillText(`${index + 1}. ${item.race}`, x + 24, y - 8);
+    ctx.fillStyle = "#9aa4b8";
+    ctx.font = "500 23px Fira Sans, Arial, sans-serif";
+    ctx.fillText(`${item.pick.name} · ${item.pick.year}`, x + 24, y + 22);
+    ctx.font = "700 28px Fira Sans, Arial, sans-serif";
+  });
+
+  ctx.fillStyle = "#e3342f";
+  ctx.font = "900 42px Fira Sans, Arial, sans-serif";
+  ctx.fillText("CAN YOU GO 24-0?", 76, 1430);
+  return canvas;
+}
+
+function downloadResultCard() {
+  if (!state.result.length) return;
+  const link = document.createElement("a");
+  link.download = `f1-24-0-${state.calendarYear}.png`;
+  link.href = drawShareCanvas().toDataURL("image/png");
+  link.click();
+}
+
+function shareOnTwitter() {
+  if (!state.result.length) return;
+  const text = encodeURIComponent(makeShareText());
+  const url = encodeURIComponent("https://github.com/azmath97/f1-24-0");
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank", "noopener,noreferrer");
+}
+
 function toggleTheme() {
   document.body.classList.toggle("light");
   byId("themeButton").textContent = document.body.classList.contains("light") ? "DARK" : "LIGHT";
@@ -296,6 +532,8 @@ function bindEvents() {
   byId("driverSelect").addEventListener("change", event => chooseDriver(event.target.value));
   byId("simulateButton").addEventListener("click", runSimulation);
   byId("newGameButton").addEventListener("click", newRun);
+  byId("downloadCardButton").addEventListener("click", downloadResultCard);
+  byId("shareTwitterButton").addEventListener("click", shareOnTwitter);
   byId("themeButton").addEventListener("click", toggleTheme);
 }
 
