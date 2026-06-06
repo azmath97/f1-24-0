@@ -30,6 +30,119 @@ const calendars = {
   ]
 };
 
+const raceWinners = {
+  2025: {
+    "Australia": "Lando Norris",
+    "China": "Oscar Piastri",
+    "Japan": "Max Verstappen",
+    "Bahrain": "Oscar Piastri",
+    "Saudi Arabia": "Oscar Piastri",
+    "Miami": "Oscar Piastri",
+    "Emilia-Romagna": "Max Verstappen",
+    "Monaco": "Lando Norris",
+    "Spain": "Oscar Piastri",
+    "Canada": "George Russell",
+    "Austria": "Lando Norris",
+    "Great Britain": "Lando Norris",
+    "Belgium": "Oscar Piastri",
+    "Hungary": "Lando Norris",
+    "Netherlands": "Oscar Piastri",
+    "Italy": "Max Verstappen",
+    "Azerbaijan": "Max Verstappen",
+    "Singapore": "George Russell",
+    "United States": "Max Verstappen",
+    "Mexico City": "Lando Norris",
+    "Sao Paulo": "Lando Norris",
+    "Las Vegas": "Max Verstappen",
+    "Qatar": "Max Verstappen",
+    "Abu Dhabi": "Max Verstappen"
+  },
+  2023: {
+    "Bahrain": "Max Verstappen",
+    "Saudi Arabia": "Sergio Perez",
+    "Australia": "Max Verstappen",
+    "Azerbaijan": "Sergio Perez",
+    "Miami": "Max Verstappen",
+    "Monaco": "Max Verstappen",
+    "Spain": "Max Verstappen",
+    "Canada": "Max Verstappen",
+    "Austria": "Max Verstappen",
+    "Great Britain": "Max Verstappen",
+    "Hungary": "Max Verstappen",
+    "Belgium": "Max Verstappen",
+    "Netherlands": "Max Verstappen",
+    "Italy": "Max Verstappen",
+    "Singapore": "Carlos Sainz",
+    "Japan": "Max Verstappen",
+    "Qatar": "Max Verstappen",
+    "United States": "Max Verstappen",
+    "Mexico City": "Max Verstappen",
+    "Sao Paulo": "Max Verstappen",
+    "Las Vegas": "Max Verstappen",
+    "Abu Dhabi": "Max Verstappen"
+  },
+  2012: {
+    "Australia": "Jenson Button",
+    "Malaysia": "Fernando Alonso",
+    "China": "Nico Rosberg",
+    "Bahrain": "Sebastian Vettel",
+    "Spain": "Pastor Maldonado",
+    "Monaco": "Mark Webber",
+    "Canada": "Lewis Hamilton",
+    "Europe": "Fernando Alonso",
+    "Great Britain": "Mark Webber",
+    "Germany": "Fernando Alonso",
+    "Hungary": "Lewis Hamilton",
+    "Belgium": "Jenson Button",
+    "Italy": "Lewis Hamilton",
+    "Singapore": "Sebastian Vettel",
+    "Japan": "Sebastian Vettel",
+    "Korea": "Sebastian Vettel",
+    "India": "Sebastian Vettel",
+    "Abu Dhabi": "Kimi Raikkonen",
+    "United States": "Lewis Hamilton",
+    "Brazil": "Jenson Button"
+  },
+  2002: {
+    "Australia": "Michael Schumacher",
+    "Malaysia": "Ralf Schumacher",
+    "Brazil": "Michael Schumacher",
+    "San Marino": "Michael Schumacher",
+    "Spain": "Michael Schumacher",
+    "Austria": "Michael Schumacher",
+    "Monaco": "David Coulthard",
+    "Canada": "Michael Schumacher",
+    "Europe": "Rubens Barrichello",
+    "Great Britain": "Michael Schumacher",
+    "France": "Michael Schumacher",
+    "Germany": "Michael Schumacher",
+    "Hungary": "Rubens Barrichello",
+    "Belgium": "Michael Schumacher",
+    "Italy": "Rubens Barrichello",
+    "United States": "Rubens Barrichello",
+    "Japan": "Michael Schumacher"
+  },
+  1995: {
+    "Brazil": "Michael Schumacher",
+    "Argentina": "Damon Hill",
+    "San Marino": "Damon Hill",
+    "Spain": "Michael Schumacher",
+    "Monaco": "Michael Schumacher",
+    "Canada": "Jean Alesi",
+    "France": "Michael Schumacher",
+    "Great Britain": "Johnny Herbert",
+    "Germany": "Michael Schumacher",
+    "Hungary": "Damon Hill",
+    "Belgium": "Michael Schumacher",
+    "Italy": "Johnny Herbert",
+    "Portugal": "David Coulthard",
+    "Europe": "Michael Schumacher",
+    "Pacific": "Michael Schumacher",
+    "Japan": "Michael Schumacher",
+    "Australia": "Damon Hill"
+  }
+};
+
 const driverCareers = [
   entry("Ayrton Senna", 1990, 1994, 97, ["McLaren", "Williams"], ["Street", "Wet", "Qualifying"]),
   entry("Alain Prost", 1990, 1993, 95, ["Ferrari", "Williams"], ["Champion", "Race Pace"]),
@@ -427,6 +540,15 @@ function currentRaceName() {
   return state.races[state.currentIndex] || state.races[state.races.length - 1];
 }
 
+function sameYearWinnerName(race = currentRaceName()) {
+  if (state.rolledYear !== state.calendarYear) return null;
+  return raceWinners[state.calendarYear]?.[race] || null;
+}
+
+function isSameYearRaceWinner(driver, race = currentRaceName()) {
+  return Boolean(driver && driver.year === state.calendarYear && driver.name === raceWinners[state.calendarYear]?.[race]);
+}
+
 function driversForYear(year) {
   const combined = new Map();
 
@@ -456,6 +578,17 @@ function driversForYear(year) {
   });
 
   return [...combined.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function pickerDrivers() {
+  const drivers = driversForYear(state.rolledYear);
+  const winner = sameYearWinnerName();
+  if (!winner) return drivers;
+  return [...drivers].sort((a, b) => {
+    if (a.name === winner) return -1;
+    if (b.name === winner) return 1;
+    return a.name.localeCompare(b.name);
+  });
 }
 
 function teamForYear(driver, year) {
@@ -751,16 +884,22 @@ function renderRollPanel() {
     return;
   }
 
-  const drivers = driversForYear(state.rolledYear);
-  byId("rollHint").textContent = `Race: ${currentRaceName()}. Choose one driver who raced in ${state.rolledYear}.`;
+  const drivers = pickerDrivers();
+  const winner = sameYearWinnerName();
+  byId("rollHint").textContent = winner
+    ? `Race: ${currentRaceName()}. Same-year winner ${winner} is first and locks the win.`
+    : `Race: ${currentRaceName()}. Choose one driver who raced in ${state.rolledYear}.`;
   byId("rollButtonText").textContent = "Roll Again";
   byId("driverPickerButton").textContent = `Select from ${state.rolledYear}`;
   byId("driverPickerButton").disabled = false;
   byId("driverOptions").classList.toggle("is-open", state.dropdownOpen);
   byId("driverOptions").innerHTML = drivers.map((driver, index) => `
-    <button class="driver-option" type="button" role="option" data-driver-index="${index}">
+    <button class="driver-option ${isSameYearRaceWinner(driver) ? "race-winner-option" : ""}" type="button" role="option" data-driver-index="${index}">
       <span class="driver-option-name">${driver.name}</span>
-      <span class="driver-option-team">${teamBadgeHtml(driver.team)}</span>
+      <span class="driver-option-team">
+        ${isSameYearRaceWinner(driver) ? `<span class="winner-pill">Race winner</span>` : ""}
+        ${teamBadgeHtml(driver.team)}
+      </span>
     </button>
   `).join("");
   byId("skipButton").disabled = state.rerolls <= 0;
@@ -799,7 +938,7 @@ function rollYear(isReroll = false) {
 
 function chooseDriver(value) {
   if (value === "" || !state.rolledYear || allFilled()) return;
-  const picked = driversForYear(state.rolledYear)[Number(value)];
+  const picked = pickerDrivers()[Number(value)];
   state.picks[state.currentIndex] = picked;
   const nextOpen = state.picks.findIndex(item => !item);
   state.currentIndex = nextOpen === -1 ? state.races.length - 1 : nextOpen;
@@ -809,6 +948,14 @@ function chooseDriver(value) {
 }
 
 function simulatePick(pick, race, index) {
+  if (isSameYearRaceWinner(pick, race)) {
+    return {
+      race,
+      pick,
+      won: true
+    };
+  }
+
   const streetRace = ["Monaco", "Singapore", "Azerbaijan", "Las Vegas", "Saudi Arabia", "Miami"].includes(race);
   const powerRace = ["Italy", "Belgium", "Great Britain", "Qatar", "Austria"].includes(race);
   const historyBonus = pick.tags.includes("Champion") ? 4 : 0;
@@ -935,6 +1082,14 @@ function toggleTheme() {
   byId("themeButton").textContent = document.body.classList.contains("light") ? "DARK" : "LIGHT";
 }
 
+function openInstructions() {
+  byId("instructionsModal").hidden = false;
+}
+
+function closeInstructions() {
+  byId("instructionsModal").hidden = true;
+}
+
 function bindEvents() {
   byId("rollButton").addEventListener("click", () => rollYear(Boolean(state.rolledYear)));
   byId("skipButton").addEventListener("click", () => rollYear(true));
@@ -953,6 +1108,14 @@ function bindEvents() {
   byId("downloadCardButton").addEventListener("click", downloadResultCard);
   byId("shareTwitterButton").addEventListener("click", shareOnTwitter);
   byId("themeButton").addEventListener("click", toggleTheme);
+  byId("instructionsButton").addEventListener("click", openInstructions);
+  byId("closeInstructionsButton").addEventListener("click", closeInstructions);
+  byId("instructionsModal").addEventListener("click", event => {
+    if (event.target.id === "instructionsModal") closeInstructions();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeInstructions();
+  });
 }
 
 function render() {

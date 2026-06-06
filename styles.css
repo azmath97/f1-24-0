@@ -67,6 +67,11 @@ button {
   min-height: 44px;
 }
 
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .nav-left,
 .season-grid {
   display: flex;
@@ -96,6 +101,52 @@ button {
   color: var(--text);
   border-color: var(--text);
   background: var(--paper-2);
+}
+
+.instruction-button {
+  width: 34px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.instructions-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, .64);
+}
+
+.instructions-modal[hidden] {
+  display: none;
+}
+
+.instructions-box {
+  width: min(560px, 100%);
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .055), transparent 42%),
+    #111112;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .54);
+}
+
+.instruction-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding-left: 22px;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.instruction-list li::marker {
+  color: var(--accent);
+  font-weight: 900;
 }
 
 .hero {
@@ -405,6 +456,12 @@ h2 {
   background: rgba(255, 255, 255, .055);
 }
 
+.race-winner-option {
+  background:
+    linear-gradient(90deg, rgba(35, 209, 123, .14), transparent 68%),
+    transparent;
+}
+
 .driver-option-name {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -422,6 +479,19 @@ h2 {
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.winner-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 0 6px;
+  border: 1px solid rgba(35, 209, 123, .68);
+  border-radius: 3px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 button:disabled {
@@ -650,6 +720,24 @@ body.light .simulate-button {
   white-space: normal;
 }
 
+.site-footer {
+  margin: 22px 0 8px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.site-footer a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
 @media (max-width: 880px) {
   .hero,
   .game-grid {
@@ -666,7 +754,6 @@ body.light .simulate-button {
     padding: 12px;
   }
 
-  .top-nav,
   .panel-header,
   .section-head {
     align-items: stretch;
