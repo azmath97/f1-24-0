@@ -46,6 +46,13 @@ body {
   font-family: "Fira Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+body.light {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, .72), transparent 24rem),
+    radial-gradient(circle at 12% 10%, rgba(227, 52, 47, .08), transparent 28rem),
+    linear-gradient(180deg, #fffaf0 0%, var(--bg) 42%, #ede3d5 100%);
+}
+
 button {
   font: inherit;
 }
@@ -130,7 +137,7 @@ button {
   border-radius: 6px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .055), transparent 42%),
-    #111112;
+    var(--paper);
   box-shadow: 0 28px 70px rgba(0, 0, 0, .54);
 }
 
@@ -428,6 +435,13 @@ h2 {
   box-shadow: 0 16px 34px rgba(0, 0, 0, .42);
 }
 
+body.light .driver-options {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .72), transparent 46%),
+    #fffaf0;
+  box-shadow: 0 16px 34px rgba(65, 45, 18, .18);
+}
+
 .driver-options.is-open {
   display: grid;
 }
@@ -454,6 +468,11 @@ h2 {
 .driver-option:hover,
 .driver-option:focus-visible {
   background: rgba(255, 255, 255, .055);
+}
+
+body.light .driver-option:hover,
+body.light .driver-option:focus-visible {
+  background: rgba(21, 18, 14, .06);
 }
 
 .race-winner-option {
@@ -660,6 +679,10 @@ body.light .simulate-button {
   background: #07160d;
 }
 
+body.light .celebration {
+  background: #f1fff6;
+}
+
 .celebration strong {
   display: block;
   color: var(--green);
@@ -767,6 +790,26 @@ body.light .simulate-button {
   .race-list,
   .result-list {
     grid-template-columns: 1fr;
+  }
+
+  .driver-options {
+    max-height: min(58vh, 420px);
+  }
+
+  .driver-option {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    min-height: 64px;
+    padding: 10px 12px;
+  }
+
+  .driver-option-name {
+    white-space: normal;
+  }
+
+  .driver-option-team {
+    justify-self: start;
+    flex-wrap: wrap;
   }
 
   .simulate-button {
